@@ -1,45 +1,55 @@
-import java.util.Date;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
-public class Meeting extends Event implements Comparable<Meeting>{
+public class Meeting extends Event implements Completable{
 
-    Date endDateTime;   // the time the meeting is over.
+    LocalDateTime endDateTime;   // the time the meeting is over.
 
     String location;    // represents the location of the event.
 
-    void complete(){
+    boolean complete;
 
-    }    // sets the complete boolean to true;
+    Meeting(String name, LocalDateTime start, LocalDateTime end, String location){
+        super.name = name;
+        super.dateTime = start;
+        endDateTime = end;
+        this.location = location;
+    }
 
-    boolean isComplete(){
-        return false;
-    }    // returns the complete boolean.
+    @Override
+    public void complete() {
+        complete = true;
+    }
 
-    Date getEndTime() {
+    @Override
+    public boolean isComplete() {
+        return complete;
+    }
+
+    LocalDateTime getEndDateTime() {
         return endDateTime;
     }    // returns the endDateTime
 
-    int getDuration(){
-        return 0;
+    Duration getDuration(){
+        return Duration.between(dateTime, endDateTime);
+
     }     // returns the duration of the meeting, (dateTime – endDateTime)
 
     String getLocation(){
         return location;
     }   // returns the location of the meeting.
 
-    void setEndTime(Date end){
-
+    void setEndDateTime(LocalDateTime end){
+        endDateTime = end;
     }    // sets the end of the meeting.
 
     void setLocation(String location) {
-
+        this.location = location;
     }  // sets the location of the meeting.
 
-    String getName() {
-        return "";
-    }
 
     @Override
-    public int compareTo(Meeting o) {
-        return 0;
+    String getName() {
+        return super.name;
     }
 }
