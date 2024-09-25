@@ -81,7 +81,6 @@ public class EventListPanel extends JPanel {
 
     public void addEvent(Event event) {
         events.add(event);
-        //displayPanel.add(new EventPanel(event));
         updateDisplay();
     }
 

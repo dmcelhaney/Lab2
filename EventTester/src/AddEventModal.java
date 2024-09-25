@@ -9,7 +9,7 @@ public class AddEventModal extends JDialog{
     private EventListPanel eventListPanel;  // This is the listPanel that made this modal
     AddEventModal modal;                   // self reference for use in inner classes
     record Attribute(String name, JComponent value){}  // record for associating names with JComponents
-    ArrayList<Attribute> attributes;           // will vary depending on the animal
+    ArrayList<Attribute> attributes;           // will vary
     JPanel infoCollectorPanel;                  // Holds the attribute components
     JComboBox<String> eventTypeComboBox;       // Chooses which type of event to create
 
